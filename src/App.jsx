@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 
+import Loading from 'react-loading-bar'
+import 'react-loading-bar/dist/index.css'
 import './App.css';
+import WeatherIcon from './components/WeatherIcon';
+import WeatherDetails from './components/WeatherDetails';
 
 class WeatherApp extends Component {
 	state = {
-		icon: '',
 		time: 1,
 		city: '',
 		temperature: '',
 		weatherCode: '',
-		fetching: true
+		fetching: true,
 	}
 
 	componentDidMount() {
@@ -26,7 +29,7 @@ class WeatherApp extends Component {
 	fetchWeatherData = city => {
 		const baseUrl = `http://api.openweathermap.org`;
 		const path = `/data/2.5/weather`;
-		const apiKey = `b3ac746512dc932694a267eb3e447103`;
+		const apiKey = ``; //your api key from openweathermap.org
 		const query = `units=metric&lang=ru&appid=${apiKey}`
 
 		fetch(`${baseUrl}${path}?q=${city}&${query}`)
@@ -47,10 +50,19 @@ class WeatherApp extends Component {
 	}
 
   render() {
-		const { city } = this.state;
+		const { icon, time, city, temperature, weatherCode } = this.state;
     return (
-      <h1>Hello! Now we in the {city} city! </h1>
-    );
+			<div className="weatherBackground" data-hour={time}>
+        <WeatherIcon
+          weatherCode={weatherCode}
+          time={time}
+				/>
+        <WeatherDetails
+          city={city}
+          temperature={temperature}
+				/>
+      </div>
+		);
   }
 }
 
