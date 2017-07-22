@@ -25,3 +25,6 @@ Copy your key at line
 ```sh
 const apiKey = ``; //your api key from openweathermap.org
 ```
+
+## To do:
+Creation of the full application
