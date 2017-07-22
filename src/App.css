@@ -64,7 +64,7 @@ body {
 .weatherBackground[data-hour='21'],
 .weatherBackground[data-hour='22'],
 .weatherBackground[data-hour='23'] {
-  background-color: #192f49;
+  background-color: #2e3440;
   color: white;
 }
 
@@ -82,10 +82,10 @@ body {
 }
 
 .weather-details .city {
-  font-size: 24px;
+  font-size: 1.5em;
   margin-bottom: 1rem;
 }
 
 .weather-details .temperature {
-  font-size: 48px;
+  font-size: 2em;
 }
