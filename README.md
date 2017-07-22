@@ -17,7 +17,7 @@ or
 $ yarn start
 ```
 
-##Api key:
+## Api key:
 Use will require API key. API key is in a personal profile of [openweathermap](https://home.openweathermap.org/users/sign_in)
 
 Copy your key at line
