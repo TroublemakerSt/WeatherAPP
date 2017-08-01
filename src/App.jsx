@@ -20,14 +20,14 @@ class WeatherApp extends Component {
 	}
 
 	fetchIp = () => {
-		fetch('//freegeoip.net/json/')
+		fetch('http://freegeoip.net/json/')
 			.then(response => response.json())
 			.then(({ city }) => this.fetchWeatherData(city))
 			.catch(error => console.log(error));
 	}
 
 	fetchWeatherData = city => {
-		const baseUrl = `//api.openweathermap.org`;
+		const baseUrl = `http://api.openweathermap.org`;
 		const path = `/data/2.5/weather`;
 		const apiKey = `b3ac746512dc932694a267eb3e447103`;
 		const query = `units=metric&lang=ru&appid=${apiKey}`
