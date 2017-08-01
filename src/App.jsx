@@ -20,7 +20,7 @@ class WeatherApp extends Component {
 	}
 
 	fetchIp = () => {
-		fetch('//freegeoip.net/json/')
+		fetch('https://freegeoip.net/json/')
 			.then(response => response.json())
 			.then(({ city }) => this.fetchWeatherData(city))
 			.catch(error => console.log(error));
