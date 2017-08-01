@@ -2,6 +2,7 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
+	"homepage": "https://troublemakerst.github.io/WeatherAPP",
   "dependencies": {
     "classnames": "^2.2.5",
     "react": "^15.6.1",
