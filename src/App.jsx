@@ -27,7 +27,7 @@ class WeatherApp extends Component {
 	}
 
 	fetchWeatherData = city => {
-		const baseUrl = `http://api.openweathermap.org`;
+		const baseUrl = `https://crossorigin.me/http://api.openweathermap.org`;
 		const path = `/data/2.5/weather`;
 		const apiKey = `b3ac746512dc932694a267eb3e447103`;
 		const query = `units=metric&lang=ru&appid=${apiKey}`
