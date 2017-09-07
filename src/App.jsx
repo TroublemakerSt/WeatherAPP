@@ -1,69 +1,91 @@
 import React, { Component } from 'react';
 
-import Loading from 'react-loading-bar'
-import 'react-loading-bar/dist/index.css'
+import { connect } from 'react-redux';
+import Loading from 'react-loading-bar';
+import 'react-loading-bar/dist/index.css';
 import './App.css';
 import WeatherIcon from './components/WeatherIcon';
 import WeatherDetails from './components/WeatherDetails';
+import { getWeather } from './actions';
 
 class WeatherApp extends Component {
-	state = {
-		time: 1,
-		city: '',
-		temperature: '',
-		weatherCode: '',
-		fetching: true,
-	}
+  // state = {
+  //   time: 1,
+  //   city: '',
+  //   temperature: '',
+  //   weatherCode: '',
+  //   fetching: true
+  // };
 
-	componentDidMount() {
-		this.fetchIp();
-	}
+  componentDidMount() {
+    this.props.dispatch(getWeather());
+  }
 
-	fetchIp = () => {
-		fetch('https://freegeoip.net/json/')
-			.then(response => response.json())
-			.then(({ city }) => this.fetchWeatherData(city))
-			.catch(error => console.log(error));
-	}
-
-	fetchWeatherData = city => {
-		const baseUrl = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org`;
-		const path = `/data/2.5/weather`;
-		const apiKey = `b3ac746512dc932694a267eb3e447103`;
-		const query = `units=metric&lang=ru&appid=${apiKey}`
-
-		fetch(`${baseUrl}${path}?q=${city}&${query}`)
-			.then(response => response.json())
-			.then(data => {
-				const date = new Date();
-				const time = date.getHours();
-
-				this.setState({
-					time,
-					city,
-					temperature: Math.round(data.main.temp),
-					weatherCode: data.weather[0].id,
-					fetching: false,
-				});
-			})
-			.catch(error => console.log(error));
-	}
+  // fetchIp = () => {
+  //   fetch('https://freegeoip.net/json/')
+  //     .then(response => response.json())
+  //     .then(({ city }) => this.fetchWeatherData(city))
+  //     .catch(error => console.log(error));
+  // };
+  //
+  // fetchWeatherData = city => {
+  //   const baseUrl = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org`;
+  //   const path = `/data/2.5/weather`;
+  //   const apiKey = `b3ac746512dc932694a267eb3e447103`;
+  //   const query = `units=metric&lang=ru&appid=${apiKey}`;
+  //
+  //   fetch(`${baseUrl}${path}?q=${city}&${query}`)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       const date = new Date();
+  //       const time = date.getHours();
+  //
+  //       this.setState({
+  //         time,
+  //         city,
+  //         temperature: Math.round(data.main.temp),
+  //         weatherCode: data.weather[0].id,
+  //         fetching: false
+  //       });
+  //     })
+  //     .catch(error => console.log(error));
+  // };
 
   render() {
-		const { icon, time, city, temperature, weatherCode } = this.state;
+    console.log('My props', this.props);
+    const {
+      time,
+      city,
+      weatherCode,
+      visibility,
+      temperature,
+      min_temp,
+      max_temp
+    } = this.props;
     return (
-			<div className="weatherBackground" data-hour={time}>
-        <WeatherIcon
-          weatherCode={weatherCode}
-          time={time}
-				/>
+      <div className="weatherBackground" data-hour={time}>
+        <WeatherIcon weatherCode={weatherCode} time={time} />
         <WeatherDetails
           city={city}
           temperature={temperature}
-				/>
+          min_temp={min_temp}
+          max_temp={max_temp}
+        />
       </div>
-		);
+    );
   }
 }
 
-export default WeatherApp;
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    ...state.default
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherApp);

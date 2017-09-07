@@ -2,10 +2,10 @@
 @import url(weather/css/weather-icons.min.css);
 
 body {
-    margin: 0;
-    padding: 0;
-		font-size: 2em;
-    font-family: 'Exo', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  font-family: 'Exo', sans-serif;
 }
 
 .weatherBackground {
@@ -33,7 +33,7 @@ body {
 .weatherBackground[data-hour='6'],
 .weatherBackground[data-hour='7'] {
   background-color: #82bfe5;
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 
 .weatherBackground[data-hour='8'],
@@ -41,7 +41,7 @@ body {
 .weatherBackground[data-hour='10'],
 .weatherBackground[data-hour='11'] {
   background-color: #c3e9f7;
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 
 .weatherBackground[data-hour='12'],
@@ -49,7 +49,7 @@ body {
 .weatherBackground[data-hour='14'],
 .weatherBackground[data-hour='15'] {
   background-color: #efad51;
-  color: #2F2F2F;
+  color: #2f2f2f;
 }
 
 .weatherBackground[data-hour='16'],
@@ -88,4 +88,9 @@ body {
 
 .weather-details .temperature {
   font-size: 2em;
+}
+
+.weather-details .min_max_temp {
+  font-size: 1em;
+  margin-top: 1rem;
 }
