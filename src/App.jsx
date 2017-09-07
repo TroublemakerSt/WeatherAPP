@@ -6,6 +6,7 @@ import 'react-loading-bar/dist/index.css';
 import './App.css';
 import WeatherIcon from './components/WeatherIcon';
 import WeatherDetails from './components/WeatherDetails';
+import AddedCity from './components/AddedCity';
 import { getWeather } from './actions';
 
 class WeatherApp extends Component {
@@ -59,8 +60,8 @@ class WeatherApp extends Component {
       weatherCode,
       visibility,
       temperature,
-      min_temp,
-      max_temp
+      minTemp,
+      maxTemp
     } = this.props;
     return (
       <div className="weatherBackground" data-hour={time}>
@@ -68,9 +69,10 @@ class WeatherApp extends Component {
         <WeatherDetails
           city={city}
           temperature={temperature}
-          min_temp={min_temp}
-          max_temp={max_temp}
+          minTemp={minTemp}
+          maxTemp={maxTemp}
         />
+        <AddedCity />
       </div>
     );
   }

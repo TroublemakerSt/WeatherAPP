@@ -36,9 +36,8 @@ const fetchWeatherData = city => {
       const time = date.getHours();
       const temperature = Math.round(data.main.temp);
       const weatherCode = data.weather[0].id;
-      const min_temp = data.main.temp_min;
-      const max_temp = data.main.temp_max;
-      console.log('Data', temperature);
+      const minTemp = data.main.temp_min;
+      const maxTemp = data.main.temp_max;
 
       return {
         ...data,
@@ -47,8 +46,8 @@ const fetchWeatherData = city => {
         date,
         temperature,
         weatherCode,
-        min_temp,
-        max_temp
+        minTemp,
+        maxTemp
       };
     })
     .catch(error => console.log(error));
