@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import Loading from 'react-loading-bar';
 import 'react-loading-bar/dist/index.css';
 import './App.css';
 import WeatherIcon from './components/WeatherIcon';
@@ -58,7 +57,6 @@ class WeatherApp extends Component {
       time,
       city,
       weatherCode,
-      visibility,
       temperature,
       minTemp,
       maxTemp

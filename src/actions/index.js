@@ -1,4 +1,5 @@
 export const GET_WEATHER_SECCUSS = 'GET_WEATHER_SECCUSS';
+export const GET_HISTORY_CITY = 'GET_HISTORY_CITY';
 
 export function getWeather(city) {
   return (dispatch, getState) => {
@@ -52,3 +53,10 @@ const fetchWeatherData = city => {
     })
     .catch(error => console.log(error));
 };
+
+export function historyCity(historyCity) {
+  return {
+    type: GET_HISTORY_CITY,
+    historyCity
+  };
+}
