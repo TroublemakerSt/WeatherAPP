@@ -70,7 +70,11 @@ class WeatherApp extends Component {
           minTemp={minTemp}
           maxTemp={maxTemp}
         />
-        <AddedCity />
+        <AddedCity
+          temperature={temperature}
+          minTemp={minTemp}
+          maxTemp={maxTemp}
+        />
       </div>
     );
   }
@@ -84,7 +88,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    ...state.default
+    ...state.weather.default
   };
 }
 

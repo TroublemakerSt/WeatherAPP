@@ -1,4 +1,4 @@
-import { GET_WEATHER_SECCUSS, GET_HISTORY_CITY } from '../actions';
+import { GET_WEATHER_SECCUSS } from '../actions';
 
 export default function getData(state = {}, action = {}) {
   switch (action.type) {
@@ -7,11 +7,6 @@ export default function getData(state = {}, action = {}) {
         ...state,
         [action.weather.city]: action.weather,
         default: action.weather
-      };
-    case GET_HISTORY_CITY:
-      return {
-        ...state,
-        historyCity: action.historyCity
       };
     default:
       return state;

@@ -1,5 +1,6 @@
 export const GET_WEATHER_SECCUSS = 'GET_WEATHER_SECCUSS';
 export const GET_HISTORY_CITY = 'GET_HISTORY_CITY';
+export const DELETE_HISTORY_CITY = 'DELETE_HISTORY_CITY';
 
 export function getWeather(city) {
   return (dispatch, getState) => {
@@ -58,5 +59,12 @@ export function historyCity(historyCity) {
   return {
     type: GET_HISTORY_CITY,
     historyCity
+  };
+}
+
+export function deleteHistoryCity(id) {
+  return {
+    type: DELETE_HISTORY_CITY,
+    id
   };
 }
