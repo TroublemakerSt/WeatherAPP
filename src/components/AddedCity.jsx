@@ -30,7 +30,7 @@ class AddedCity extends React.Component {
       <div>
         <Search
           placeholder="Search your city"
-          style={{ width: 250, height: 50 }}
+          style={{ width: 250, height: 50, marginBottom: 20 }}
           onSearch={value => this.onSearch(value)}
         />
         <Collapse bordered={false} style={{ fontSize: 20 }}>
@@ -38,7 +38,11 @@ class AddedCity extends React.Component {
             {this.props.city.map((city, index) => (
               <p key={index}>
                 {city.city}
-                <Button type="danger" onClick={() => this.onDelete(city.id)}>
+                <Button
+                  style={{ float: 'right' }}
+                  type="danger"
+                  onClick={() => this.onDelete(city.id)}
+                >
                   Delete
                 </Button>
               </p>
